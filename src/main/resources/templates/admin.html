@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SB Admin 2 - Dashboard</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Font%20Awesome%205%20Brands.css">
+    <link rel="stylesheet" href="assets/css/Font%20Awesome%205%20Free.css">
+    <link rel="stylesheet" href="assets/css/Nunito.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/css/sb-admin-2.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/datatables/dataTables.bootstrap4.min.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper"><ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Library Admin</div>
+            </a>
+
+            
+            <hr class="sidebar-divider my-0">
+
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="admin">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            
+            <hr class="sidebar-divider">
+
+            
+            <div class="sidebar-heading">
+                Pages
+            </div>
+  
+            <li class="nav-item">
+                <a class="nav-link" href="members">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Members</span></a>
+            </li>
+
+            
+            <li class="nav-item">
+                <a class="nav-link" href="books">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Books</span></a>
+            </li>
+
+            
+            <hr class="sidebar-divider d-none d-md-block">
+
+            
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+
+        </ul>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="bg-white shadow navbar navbar-expand navbar-light topbar mb-4 static-top"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop"><i class="fas fa-bars"></i></button><ul class="navbar-nav ml-auto">
+
+                        
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Librarian Info</span>
+                            </a>
+                            
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul></nav>
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1><a class="btn btn-primary btn-sm shadow-sm d-none d-sm-inline-block d-md-none" role="button" href="#"><i class="fas fa-download text-white-50 fa-sm"></i> Generate Report</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xl-3 mb-4 col-xl-6">
+                            <div class="card shadow border-left-primary h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-primary text-xs font-weight-bold mb-1"><span> MEMBERS</span></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span><!-- 100 --></span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-users fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4 col-xl-6">
+                            <div class="card shadow border-left-success h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-success text-xs font-weight-bold mb-1"><span>TOTAL BOOKS</span></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span><!-- 125 --></span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-book-open fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4 col-xl-6">
+                            <div class="card shadow border-left-info h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-info text-xs font-weight-bold mb-1"><span>BORROWED BOOKS</span></div>
+                                            <div class="row align-items-center no-gutters">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><span><!-- 20 --></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-book-reader fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4 col-xl-6">
+                            <div class="card shadow border-left-warning h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-warning text-xs font-weight-bold mb-1"><span> CURRENT BOOKS</span></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span><!-- 105 --></span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-book fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-7 col-xl-8">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="text-primary m-0 font-weight-bold">BOOKS</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center"><img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 15rem;" src="assets/img/read.svg" alt="..." width="400" height="261"></div>
+                                    <p>The chart provides a visual representation of the current status of books in the library, specifically highlighting two categories: "current books" and "borrowed books". The term "current books" refers to the total number of books available in the library at the time the chart was created, while "borrowed books" refers to the number of books that have been checked out by library patrons and are currently not physically present in the library.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-xl-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex flex-row justify-content-between align-items-center py-3">
+                                    <h6 class="text-primary m-0 font-weight-bold">Chart</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4 pb-2"><!-- <canvas id="myPieChart"></canvas> --></div>
+                                    <div class="text-center mt-4 small"><span class="mr-2"><i class="fas fa-circle text-primary"></i>&nbsp;Borrowed</span><span class="mr-2"><i class="fas fa-circle text-success"></i>&nbsp;Current</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Library System 2023</span></div>
+                </div>
+            </footer>
+        </div>
+    </div><a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <div class="modal fade" role="dialog" tabindex="-1" id="logoutModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body"><span>Select "Logout" below if you are ready to end your current session.</span></div>
+                <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button><a class="btn btn-primary" role="button" href="login.html">Logout</a></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/js/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="assets/js/js/sb-admin-2.min.js"></script>
+    <script src="assets/js/vendor/chart.js/Chart.min.js"></script>
+    <script src="assets/js/js/demo/chart-area-demo.js"></script>
+    <script src="assets/js/js/demo/chart-pie-demo.js"></script>
+    <script src="assets/js/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/js/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/js/js/demo/datatables-demo.js"></script>
+</body>
+
+</html>

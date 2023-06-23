@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SB Admin 2 - Tables</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Font%20Awesome%205%20Brands.css">
+    <link rel="stylesheet" href="assets/css/Font%20Awesome%205%20Free.css">
+    <link rel="stylesheet" href="assets/css/Nunito.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/css/sb-admin-2.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/datatables/dataTables.bootstrap4.min.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper"><ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Library Admin</div>
+            </a>
+
+            
+            <hr class="sidebar-divider my-0">
+
+            
+            <li class="nav-item">
+                <a class="nav-link" href="admin">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            
+            <hr class="sidebar-divider">
+
+            
+            <div class="sidebar-heading">
+                Pages
+            </div>
+  
+            <li class="nav-item active">
+                <a class="nav-link" href="members">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Members</span></a>
+            </li>
+
+            
+            <li class="nav-item">
+                <a class="nav-link" href="books">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Books</span></a>
+            </li>
+
+            
+            <hr class="sidebar-divider d-none d-md-block">
+
+            
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+
+        </ul>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="bg-white shadow navbar navbar-expand navbar-light topbar mb-4 static-top"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop-1"><i class="fas fa-bars"></i></button><ul class="navbar-nav ml-auto">
+
+                        
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Librarian Info</span>
+                            </a>
+                            
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul></nav>
+                <div class="container-fluid">
+                    <h1 class="h3 mb-2 text-gray-800">Membership Table</h1>
+                    <p class="mb-4">The table below contains a comprehensive list of all the members registered with the library, and it provides a useful resource for managing the library's membership database. The table will typically contain important information about each member, such as their name, contact information, email, age and location.</p>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="text-primary m-0 font-weight-bold">Members</h6>
+                        </div>
+                        <div class="card-body"><a href="addmember" class="btn btn-primary my-2" role="button">Add New Member</a>
+                            <div class="table-responsive"><table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Contact</th>
+                                            <th>Email</th>
+                                            <th>Age</th>
+                                            <th>Location</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Contact</th>
+                                            <th>Email</th>
+                                            <th>Age</th>
+                                            <th>Location</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody th:each="member: ${members}">
+                                        <tr>
+                                            <td th:text="${member.name}"></td>
+                                            <td th:text="${member.contact}"></td>
+                                            <td th:text="${member.email}"></td>
+                                            <td th:text="${member.age}"></td>
+                                            <td th:text="${member.location}"></td>
+                                            <td><a class="btn btn-success btn-sm m-1" th:href="@{editmember/{id}(id=${member.id})}">Update</a> <a class="btn btn-danger btn-sm m-1" th:href="@{deletemember/{id}(id=${member.id})}">Delete</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Library System 2023</span></div>
+                </div>
+            </footer>
+        </div>
+    </div><a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <div class="modal fade" role="dialog" tabindex="-1" id="logoutModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body"><span>Select "Logout" below if you are ready to end your current session.</span></div>
+                <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button><a class="btn btn-primary" role="button" href="login.html">Logout</a></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/js/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="assets/js/js/sb-admin-2.min.js"></script>
+    <script src="assets/js/vendor/chart.js/Chart.min.js"></script>
+    <script src="assets/js/js/demo/chart-area-demo.js"></script>
+    <script src="assets/js/js/demo/chart-pie-demo.js"></script>
+    <script src="assets/js/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/js/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/js/js/demo/datatables-demo.js"></script>
+</body>
+
+</html>
